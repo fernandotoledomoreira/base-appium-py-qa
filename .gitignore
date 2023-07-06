@@ -1,0 +1,10 @@
+**/.env
+**/app/
+**/pyproject.toml
+**/allure-results/
+**/.idea/
+**/.DS_Store
+**/screenshot/
+**/_pycache_/
+**/.pytest_cache/
+*.toml
