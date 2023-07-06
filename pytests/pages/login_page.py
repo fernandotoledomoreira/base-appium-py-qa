@@ -1,4 +1,4 @@
-from pytests.support.hooks import *
+from pytests.support.screenshot_service import ScreenshotService
 from appium.webdriver.common.mobileby import MobileBy
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -28,22 +28,22 @@ class LoginPage:
         return WebDriverWait(driver, 30).until(EC.visibility_of_element_located((MobileBy.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.TextView[1]')))
 
     # **
-    # * Métodos e Funções hsauahsuahsuahsuhasuhaushaushaushaushaushaushauhsuahsuahsuahsuahsuahsuahsuahsuahsuahsuahsuahsuahus
+    # * Métodos e Funções
     # **
 
     @staticmethod
     def login_screen(driver):
         LoginPage.field_cpf(driver)
-        driver.save_screenshot(PATH_SCREENSHOT)
+        ScreenshotService.take_screenshot(driver)
 
     @staticmethod
     def fill_login(driver, cpf, senha):
         LoginPage.field_cpf(driver).send_keys(cpf)
         LoginPage.field_password(driver).send_keys(senha)
-        driver.save_screenshot(PATH_SCREENSHOT)
+        ScreenshotService.take_screenshot(driver)
 
     @staticmethod
     def perform_login(driver):
         LoginPage.button_entrar(driver).click()
         LoginPage.invalid_user(driver)
-        driver.save_screenshot(PATH_SCREENSHOT)
+        ScreenshotService.take_screenshot(driver)
