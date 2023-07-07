@@ -16,7 +16,7 @@ def driver():
     options = {
   "platformName": "Android",
   "appium:deviceName": "pixel_3a",
-  "appium:app": f"{os.getcwd()}/app/app-orbitall-release3.apk",
+  "appium:app": f"{os.getcwd()}/app/app-release.apk",
   "appium:autoGrantPermissions": True,
   "appium:locationServicesEnabled": True
 }
@@ -24,5 +24,3 @@ def driver():
     driver = webdriver.Remote('http://localhost:4723/wd/hub', options)
     yield driver
     driver.quit
-
-
