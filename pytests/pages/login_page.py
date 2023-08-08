@@ -11,6 +11,11 @@ class LoginPage:
     # **
 
     @staticmethod
+    def button_ignore(driver):
+        return WebDriverWait(driver, 30).until(EC.visibility_of_element_located((MobileBy.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.Button[2]')))
+
+
+    @staticmethod
     def field_cpf(driver):
         return WebDriverWait(driver, 30).until(EC.visibility_of_element_located((MobileBy.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.EditText')))
 
@@ -32,6 +37,7 @@ class LoginPage:
 
     @staticmethod
     def login_screen(driver):
+        LoginPage.button_ignore(driver).click()
         LoginPage.field_cpf(driver)
         ScreenshotService.take_screenshot(driver)
 
