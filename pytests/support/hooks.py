@@ -3,7 +3,7 @@ import os
 from appium import webdriver
 from pytests.support.log_service import LogService
 LOG = LogService
-PATH_SCREENSHOT = f"{os.getcwd()}/pytests/screenshot/screenshot.png"
+os.environ['PATH_SCREENSHOT'] = f"{os.getcwd()}/pytests/screenshot/screenshot.png"
 
 @pytest.fixture(scope="session", autouse=True)
 def before_all():
